@@ -11,7 +11,16 @@ export const GOALS = [
   "Other",
 ] as const;
 
-export const SERVICES = [
+export type Service = {
+  id: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  cta: string;
+  featured?: boolean;
+};
+
+export const SERVICES: Service[] = [
   {
     id: "Goodreads Foundation",
     tagline: "Designed to improve discoverability.",
@@ -57,7 +66,7 @@ export const SERVICES = [
     ],
     cta: "Choose Author Visibility",
   },
-] as const;
+];
 
 export const bookSchema = z.object({
   authorName: z.string().trim().min(2, "Please enter your name").max(100),
