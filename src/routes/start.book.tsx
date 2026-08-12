@@ -184,12 +184,12 @@ function Field({
   label: string;
   value: string;
   onChange: (v: string) => void;
-  error?: string;
-  type?: string;
-  placeholder?: string;
-  optional?: boolean;
-  autoComplete?: string;
-  className?: string;
+  error?: string | undefined;
+  type?: string | undefined;
+  placeholder?: string | undefined;
+  optional?: boolean | undefined;
+  autoComplete?: string | undefined;
+  className?: string | undefined;
 }) {
   return (
     <div className={className}>

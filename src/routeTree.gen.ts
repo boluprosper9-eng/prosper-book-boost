@@ -14,6 +14,9 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as StartBookRouteImport } from './routes/start.book'
+import { Route as StartGoalsRouteImport } from './routes/start.goals'
+import { Route as StartServiceRouteImport } from './routes/start.service'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +43,21 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartBookRoute = StartBookRouteImport.update({
+  id: '/start/book',
+  path: '/start/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartGoalsRoute = StartGoalsRouteImport.update({
+  id: '/start/goals',
+  path: '/start/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartServiceRoute = StartServiceRouteImport.update({
+  id: '/start/service',
+  path: '/start/service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +65,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/start/book': typeof StartBookRoute
+  '/start/goals': typeof StartGoalsRoute
+  '/start/service': typeof StartServiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +75,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/start/book': typeof StartBookRoute
+  '/start/goals': typeof StartGoalsRoute
+  '/start/service': typeof StartServiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +86,41 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/start/book': typeof StartBookRoute
+  '/start/goals': typeof StartGoalsRoute
+  '/start/service': typeof StartServiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/how-it-works' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/how-it-works'
+    | '/services'
+    | '/start/book'
+    | '/start/goals'
+    | '/start/service'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/how-it-works' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/how-it-works' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/how-it-works'
+    | '/services'
+    | '/start/book'
+    | '/start/goals'
+    | '/start/service'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/how-it-works'
+    | '/services'
+    | '/start/book'
+    | '/start/goals'
+    | '/start/service'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +129,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
   ServicesRoute: typeof ServicesRoute
+  StartBookRoute: typeof StartBookRoute
+  StartGoalsRoute: typeof StartGoalsRoute
+  StartServiceRoute: typeof StartServiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +171,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/start/book': {
+      id: '/start/book'
+      path: '/start/book'
+      fullPath: '/start/book'
+      preLoaderRoute: typeof StartBookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start/goals': {
+      id: '/start/goals'
+      path: '/start/goals'
+      fullPath: '/start/goals'
+      preLoaderRoute: typeof StartGoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start/service': {
+      id: '/start/service'
+      path: '/start/service'
+      fullPath: '/start/service'
+      preLoaderRoute: typeof StartServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +201,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
   ServicesRoute: ServicesRoute,
+  StartBookRoute: StartBookRoute,
+  StartGoalsRoute: StartGoalsRoute,
+  StartServiceRoute: StartServiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
