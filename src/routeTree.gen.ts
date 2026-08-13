@@ -14,8 +14,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as StartBookRouteImport } from './routes/start.book'
 import { Route as StartGoalsRouteImport } from './routes/start.goals'
+import { Route as StartReviewRouteImport } from './routes/start.review'
 import { Route as StartServiceRouteImport } from './routes/start.service'
 
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +45,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartBookRoute = StartBookRouteImport.update({
   id: '/start/book',
   path: '/start/book',
@@ -51,6 +58,11 @@ const StartBookRoute = StartBookRouteImport.update({
 const StartGoalsRoute = StartGoalsRouteImport.update({
   id: '/start/goals',
   path: '/start/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartReviewRoute = StartReviewRouteImport.update({
+  id: '/start/review',
+  path: '/start/review',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StartServiceRoute = StartServiceRouteImport.update({
@@ -65,8 +77,10 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/thank-you': typeof ThankYouRoute
   '/start/book': typeof StartBookRoute
   '/start/goals': typeof StartGoalsRoute
+  '/start/review': typeof StartReviewRoute
   '/start/service': typeof StartServiceRoute
 }
 export interface FileRoutesByTo {
@@ -75,8 +89,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/thank-you': typeof ThankYouRoute
   '/start/book': typeof StartBookRoute
   '/start/goals': typeof StartGoalsRoute
+  '/start/review': typeof StartReviewRoute
   '/start/service': typeof StartServiceRoute
 }
 export interface FileRoutesById {
@@ -86,8 +102,10 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/services': typeof ServicesRoute
+  '/thank-you': typeof ThankYouRoute
   '/start/book': typeof StartBookRoute
   '/start/goals': typeof StartGoalsRoute
+  '/start/review': typeof StartReviewRoute
   '/start/service': typeof StartServiceRoute
 }
 export interface FileRouteTypes {
@@ -98,8 +116,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/services'
+    | '/thank-you'
     | '/start/book'
     | '/start/goals'
+    | '/start/review'
     | '/start/service'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,8 +128,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/services'
+    | '/thank-you'
     | '/start/book'
     | '/start/goals'
+    | '/start/review'
     | '/start/service'
   id:
     | '__root__'
@@ -118,8 +140,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/services'
+    | '/thank-you'
     | '/start/book'
     | '/start/goals'
+    | '/start/review'
     | '/start/service'
   fileRoutesById: FileRoutesById
 }
@@ -129,8 +153,10 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
   ServicesRoute: typeof ServicesRoute
+  ThankYouRoute: typeof ThankYouRoute
   StartBookRoute: typeof StartBookRoute
   StartGoalsRoute: typeof StartGoalsRoute
+  StartReviewRoute: typeof StartReviewRoute
   StartServiceRoute: typeof StartServiceRoute
 }
 
@@ -171,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/start/book': {
       id: '/start/book'
       path: '/start/book'
@@ -183,6 +216,13 @@ declare module '@tanstack/react-router' {
       path: '/start/goals'
       fullPath: '/start/goals'
       preLoaderRoute: typeof StartGoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start/review': {
+      id: '/start/review'
+      path: '/start/review'
+      fullPath: '/start/review'
+      preLoaderRoute: typeof StartReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/start/service': {
@@ -201,8 +241,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
   ServicesRoute: ServicesRoute,
+  ThankYouRoute: ThankYouRoute,
   StartBookRoute: StartBookRoute,
   StartGoalsRoute: StartGoalsRoute,
+  StartReviewRoute: StartReviewRoute,
   StartServiceRoute: StartServiceRoute,
 }
 export const routeTree = rootRouteImport
