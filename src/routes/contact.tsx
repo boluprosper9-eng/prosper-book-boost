@@ -50,10 +50,10 @@ function ContactPage() {
               the right direction.
             </p>
             <a
-              href="mailto:hello@prosperfestors.com"
+              href="mailto:prosperfestors@gmail.com"
               className="mt-5 inline-block font-medium text-accent underline-offset-4 hover:underline"
             >
-              hello@prosperfestors.com
+              prosperfestors@gmail.com
             </a>
           </div>
 
