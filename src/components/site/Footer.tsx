@@ -52,10 +52,10 @@ export function Footer() {
             </li>
             <li>
               <a
-                href="mailto:hello@prosperfestors.com"
+                href="mailto:prosperfestors@gmail.com"
                 className="text-ink-foreground/80 transition-colors hover:text-accent"
               >
-                hello@prosperfestors.com
+                prosperfestors@gmail.com
               </a>
             </li>
           </ul>
