@@ -78,7 +78,7 @@ function ReviewStep() {
     void navigate({ to: "/thank-you", replace: true });
   };
 
-  const rows: { label: string; value?: string }[] = [
+  const rows: { label: string; value?: string | undefined }[] = [
     { label: "Author Name", value: data.authorName },
     { label: "Book Title", value: data.bookTitle },
     { label: "Genre", value: data.genre },
